@@ -13,12 +13,21 @@ FROM
 INNER JOIN
     users AS u ON b.user_id = u.user_id;
 
-/* -- Left Join
-SELECT * FROM Property
-LEFT JOIN Review
-ON Property.property_id = Review.property_id
-ORDER_BY(Property.property_id);
- */
+-- Left Join
+SELECT
+    p.property_id,
+    p.host_id,
+    p.name,
+    p.description,
+    p.location,
+    r.rating,
+    r.comment
+FROM
+    Property AS p
+LEFT JOIN
+    Review AS r ON p.property_id = r.property_id
+ORDER BY(p.property_id);
+
 /* 
 -- Right Join
 SELECT * FROM `Booking`
