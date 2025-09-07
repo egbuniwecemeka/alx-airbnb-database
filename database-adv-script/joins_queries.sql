@@ -1,7 +1,7 @@
 -- A script using join queries to retrieve and manipulate data from DB
 
 -- Inner Join
-SELECT booking_id, total_price, status, first_name, last_name FROM Booking
+SELECT * FROM Booking
 INNER JOIN users ON
 Booking.user_id = users.user_id;
 
