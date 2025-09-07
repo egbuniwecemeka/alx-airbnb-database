@@ -9,7 +9,7 @@ Booking.user_id = users.user_id;
 -- Left Join
 SELECT * FROM `Property`
 LEFT JOIN `Review`
-ON Property.user_id = Review.user_id;
+ON Property.property_id = Review.property_id;
 
 -- Right Join
 SELECT * FROM `Booking`
