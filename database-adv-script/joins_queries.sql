@@ -34,6 +34,9 @@ SELECT
     u.first_name,
     u.last_name,
     u.phone_number,
-    b.booking_id
+    b.booking_id,
+    b.start_date,
+    b.end_date,
+    b.status
 FROM users AS u
     FULL OUTER JOIN Booking AS b ON u.user_id = b.user_id;
