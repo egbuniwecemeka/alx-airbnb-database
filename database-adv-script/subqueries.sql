@@ -6,11 +6,11 @@
 -- Order of execution: Inner Subquery (1st), Outer Subquery (2nd)
 -- This is Non-correlated, because the inner query runs independently of the outer query,
 -- i.e it does not access the outer query columns directly inside the inner query
-SELECT *
+SELECT p.property_id, p.name, p.description
 FROM Property AS p
 WHERE p.property_id IN (
     SELECT r.property_id
     FROM Review AS r
     GROUP BY r.property_id
-    HAVING AVG(r.rating) > 4
+    HAVING AVG(r.rating) > 4.0
 );
