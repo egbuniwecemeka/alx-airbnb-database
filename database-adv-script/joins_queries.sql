@@ -28,20 +28,12 @@ LEFT JOIN
     Review AS r ON p.property_id = r.property_id
 ORDER BY(p.property_id);
 
-/* 
--- Right Join
-SELECT * FROM `Booking`
-RIGHT JOIN `users`
-ON Booking.user_id = users.user_id;
-
 -- Full Outer Join
-SELECT * FROM
-`Booking` LEFT JOIN `users`
-ON Booking.user_id = users.user_id
-
-UNION
-
-SELECT * FROM
-`Booking` RIGHT JOIN `users`
-ON Booking.user_id = users.user_id;
- */
+SELECT
+    u.user_id,
+    u.first_name,
+    u.last_name,
+    u.phone_number,
+    b.booking_id
+FROM users AS u
+    FULL OUTER JOIN Booking AS b ON u.user_id = b.user_id;
