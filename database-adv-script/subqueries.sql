@@ -29,4 +29,4 @@ WHERE (
     -- it returns all the rows of the column
     -- GROUP BY b.user_id
     WHERE b.user_id = u.user_id
-) > 2;
+) > 3;
