@@ -5,3 +5,14 @@ CREATE INDEX ind_usr_book ON Booking(user_id);
 
 -- Indexing the property_id column of Review table
 CREATE INDEX ind_prop_rev ON Review(property_id);
+
+-- Composite index on users table
+EXPLAIN
+SELECT u.first_name, u.last_name
+FROM users AS u;
+
+CREATE INDEX ind_fname_lname ON users(first_name, last_name);
+
+ANALYZE
+SELECT u.first_name, u.last_name
+FROM users AS u
