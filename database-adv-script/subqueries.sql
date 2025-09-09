@@ -23,10 +23,7 @@ SELECT u.user_id, u.first_name, u.last_name
 FROM users AS u
 WHERE (
     -- SELECT b.user_id
-    SELECT COUNT(*)
+    SELECT COUNT(b.user_id)
     FROM Booking AS b
-    -- At this point, I got to understand the use of GROUP BY. As without GROUP BY,
-    -- it returns all the rows of the column
-    -- GROUP BY b.user_id
     WHERE b.user_id = u.user_id
 ) > 3;
