@@ -8,4 +8,10 @@ SELECT COUNT(*) FROM Booking AS b
 GROUP BY b.user_id;
 
 -- rank properties based on the total number of bookings they have received
-SELECT b.booking_id FROM Booking AS b;
+-- COUNT(*) → counts all rows, including those with NULLs.
+-- COUNT(column) → counts only non-NULL values in that column.
+
+SELECT b.property_id, COUNT(b.booking_id) AS booking_ids,
+    RANK() OVER(ORDER BY COUNT(b.booking_id) DESC) AS rank_property 
+FROM Booking AS b
+GROUP BY b.property_id;
