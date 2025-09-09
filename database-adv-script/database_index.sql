@@ -16,4 +16,5 @@ CREATE INDEX ind_fname_lname ON users(first_name, last_name);
 
 ANALYZE
 SELECT u.first_name, u.last_name
-FROM users AS u;
+FROM users AS u
+WHERE u.first_name = 'Emmanuel';;
