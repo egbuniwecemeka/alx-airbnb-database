@@ -12,6 +12,6 @@ GROUP BY b.user_id;
 -- COUNT(column) → counts only non-NULL values in that column.
 
 SELECT b.property_id, COUNT(b.booking_id) AS booking_ids,
-    RANK() OVER(ORDER BY COUNT(b.booking_id) DESC) AS rank_property 
+    ROW_NUMBER() OVER(ORDER BY COUNT(b.booking_id) DESC) AS row_num_property 
 FROM Booking AS b
 GROUP BY b.property_id;
